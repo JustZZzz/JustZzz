@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>{$title}</title>
+    </head>
+    <body>
+        <center>
+            {include file="stu/menu.html"}
+            
+            <h3>编辑信息</h3>
+            <form action="index.php?m=stu&a=update" method="post">
+                <input type="hidden" name="id" value="{$ob.id}"/>
+            <table width="280" border="0">
+                <tr>
+                    <td align="right">姓名：</td>
+                    <td><input type="text" name="name" value="{$ob.name}"/></td>
+                </tr>
+                <tr>
+                    <td align="right">年龄：</td>
+                    <td><input type="text" name="age" value="{$ob.age}"/></td>
+                </tr>
+                <tr>
+                    <td align="right">性别：</td>
+                    <td><input type="hidden" name="sex" value="{$ob.sex}"/></td>
+                </tr>
+                <tr>
+                    <td align="right">班级：</td>
+                    <td><select name='classid'>
+                        <option>--请选择--</option>
+                        <option value='1' {if $ob.classid=='1'}selected{/if}>1班</option>
+                        <option value='2' {if $ob.classid=='2'}selected{/if}>2班</option>
+                        <option value='3' {if $ob.classid=='3'}selected{/if}>3班</option>
+                        <option value='4' {if $ob.classid=='4'}selected{/if}>4班</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2">
+                        <input type="submit" value="提交"/>
+                        <input type="reset" value="重置"/>
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </center>
+    </body>
+</html>
